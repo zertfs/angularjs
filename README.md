@@ -69,3 +69,29 @@ Controller
 		<script src="main.js"></script>
 	</body>
 </html>
+
+Main.js
+
+var app = angular.module('minmax',[]);
+
+app.controller('MinMaxCntrol',  function($scope, $http){
+	$scope.formModel = {};
+	
+	$scope.onSubmit = function(){
+		console.log("Hey im Submitted");
+		console.losg($scope.formModel);
+
+		$http.post('http://minmax-server.herokuapp.com/register/',  $scope.formModel).
+		success(function(data){
+			console.log(":)")
+		}).error(function(data) {
+			console.log(":(")
+		});
+	}
+});
+
+
+
+
+
+
